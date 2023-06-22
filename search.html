@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="//mat1.gtimg.com/www/icon/favicon2.ico">
     <title>腾讯天气</title>
-    <script src="./component/searchbar.js"></script>
+    <script type="module" src="./component/searchbar.js"></script>
+    <script type="module" src="./component/searchlist.js"></script>
     <style>
         *{
             margin: 0;
@@ -34,7 +35,7 @@
             input {
             outline: none;
             height: 3vw;
-            width: 100%; 
+            width: 85%; 
             border: none;
             background: #f2f2f2;
             }
@@ -60,6 +61,20 @@
             </div>
         </div>
     </template>
+    <template id="search-list">
+        <style>
+        .content{
+            display: flex;
+            height: 10vw;
+            font-size: 14px;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 1vw 6vw;
+        }
+        </style>
+    </template>
+
     <my-search></my-search>
+    <search-list></search-list>
 </body>
 </html>

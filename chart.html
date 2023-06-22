@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js" integrity="sha512-VdqgeoWrVJcsDXFlQEKqE5MyhaIgB9yXUVaiUa8DR2J4Lr1uWcFm+ZH/YnzV5WqgKf4GPyHQ64vVLgzqGIchyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <body>
+        <div id="main" style="width: 100vw;height:70vw; "></div>
+        </body>
+    <script>
+    const myChart = echarts.init(document.getElementById('main'));
+const  option = {
+    grid: {
+    left: '5%',    // 左边距
+    right: '5%',   // 右边距
+    top: '5%',     // 上边距
+    bottom: '5%'   // 下边距
+  },
+  animation: false,
+  legend: {
+    show:false
+  },
+
+  xAxis: {
+    type: 'category',
+    show:false,
+    boundaryGap: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    show:false,
+    type: 'value',
+    axisLabel: {
+      formatter: '{value} °C'
+    }
+  },
+  series: [
+    {
+      name: 'Highest',
+      type: 'line',
+      smooth: true,
+      symbol: 'circle', // 数据点的形状
+      symbolSize: 7,
+      data: [10, 11, 13, 11, 30, 12, 9],
+      itemStyle: {
+        color: 'orange'
+      },
+      label: {
+        show: true, 
+        formatter: '{c}°'
+      }
+    },
+    {
+      name: 'Lowest',
+      type: 'line',
+      smooth: true,
+      symbol: 'circle', 
+      symbolSize: 7,
+      data: [-5, -2, 2, 5, 3, 2, 0],
+      label: {
+        show: true, 
+        formatter: '{c}°',
+        fontSize: 15 
+      },  
+      itemStyle: {
+        color: 'skyBlue'
+      }
+    }
+  ]
+};
+        
+      myChart.setOption(option);
+      window.addEventListener('resize', function() {
+        myChart.resize();
+    });
+    </script>
+</body>
+</html>

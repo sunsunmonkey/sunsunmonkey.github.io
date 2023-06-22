@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="//mat1.gtimg.com/www/icon/favicon2.ico">
     <title>腾讯天气</title>
-    <script src="./component/header.js"></script>
-    <script src="./component/main.js"></script>
-    <script src="./component/bc.js"></script>
-    <script src="./component/double.js"></script>
-    <script src="./component/slide.js"></script>
-    <script src="./component/recommend.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js" integrity="sha512-VdqgeoWrVJcsDXFlQEKqE5MyhaIgB9yXUVaiUa8DR2J4Lr1uWcFm+ZH/YnzV5WqgKf4GPyHQ64vVLgzqGIchyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="./component/header.js"></script>
+    <script type="module" src="./component/main.js"></script>
+    <script type="module" src="./component/bc.js"></script>
+    <script type="module" src="./component/double.js"></script>
+    <script type="module" src="./component/slide.js"></script>
+    <script type="module" src="./component/recommend.js"></script>
+
     <style>
         *{
             margin: 0;
             padding: 0;
+        }
+        .chart-content{
+            position: relative;
+            height: 40vw;
         }
     </style>
 </head>
@@ -25,7 +31,7 @@
             padding: 5vw 2vw;
             display: flex;
             justify-content: space-between;
-            background-color: #3bbcff;
+            background-color: #50ade8;
             color: white;
         }
         img{
@@ -47,7 +53,6 @@
         <div class="center">
             <img src="./images/location.png" alt="">
             <div class="location">
-                &nbsp;北京市&nbsp;&nbsp;&nbsp;&nbsp;海淀区
             </div>
         </div>
         <div class="right"><img src="./images/link_icon.png" alt=""></div>
@@ -56,7 +61,7 @@
    <template id="main">
     <style>
         .temperature{
-            background: linear-gradient(to bottom,#3bbcff,#4af4ff);
+            background: linear-gradient(to bottom,#50ade8,#7ae0fa);
             height: 80vw;
             display: flex;
             align-items: center;
@@ -65,6 +70,8 @@
         }
         .temperature img{
             position: absolute;
+            width: 100vw;
+           bottom: -30vw;
         }
         .center{
             text-align: center;
@@ -83,6 +90,7 @@
             font-size: 8vw;
         }
         .center .wind{
+            margin: 2vw;
             font-size:4vw ;
         }
         .number::after{
@@ -97,12 +105,12 @@
         }
     </style>
     <div class="temperature">
-        <!-- <img src="./images/bg04.png" alt="" srcset=""> -->
+        <img src="./images/bg04.png" alt="" srcset="">
         <div class="center">
-            <div class="number">25</div>
-            <div class="cloud">多云</div>
-            <div class="wind">湿度 62%</div>
-            <div class="desc">光芒透过云缝，洒向大地~</div>
+            <div class="number"></div>
+            <div class="cloud"></div>
+            <div class="wind"></div>
+            <div class="desc">天太热了，吃个西瓜~</div>
         </div>
 
     </div>
@@ -112,7 +120,7 @@
         .content{
             height: 28vw;
             position: relative;
-            background-color: #4af4ff;
+            background-color: #7ae0fa;
             overflow: hidden;
         }
         img{
@@ -210,18 +218,7 @@
             }
     </style>
     <div class="content">
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
+
     </div>
     </div>
    </template>
@@ -256,6 +253,11 @@
         position: absolute;
         text-align: left;
         top: 0;
+    }
+    .item .temperature-none{
+        text-align: center;
+        font-size: 14px;
+        position: relative;
     }
     </style>
     <div class="item">
@@ -325,11 +327,16 @@
         <div class="second_desc">尾号不限行</div>
     </div>
    </template>
+   
    <my-header></my-header>
    <my-main></my-main>
    <my-bc></my-bc>
    <my-double></my-double>
    <my-slide></my-slide>
+   <div class="chart-content">
+    <div id="chart" style="width: 100vw;height:90vw;"></div>
+   </div>
    <my-recommend></my-recommend>
 </body>
+<script src="./component/chart.js"></script>
 </html>

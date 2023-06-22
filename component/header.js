@@ -12,6 +12,7 @@ class MyHeader extends HTMLElement{
         this.shadowRoot.querySelector(".location").addEventListener("click",()=>{
             window.location.href ="search.html"
         })
+        this.shadowRoot.querySelector(".location").textContent = localStorage.getItem("local") || "北京"
     }
 }
 
