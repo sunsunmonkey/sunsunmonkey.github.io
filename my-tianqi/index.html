@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="//mat1.gtimg.com/www/icon/favicon2.ico">
+    <title>腾讯天气</title>
+    <script src="./component/header.js"></script>
+    <script src="./component/main.js"></script>
+    <script src="./component/bc.js"></script>
+    <script src="./component/double.js"></script>
+    <script src="./component/slide.js"></script>
+    <script src="./component/recommend.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+   <template id="header">
+    <style>
+        .main{
+            padding: 5vw 2vw;
+            display: flex;
+            justify-content: space-between;
+            background-color: #3bbcff;
+            color: white;
+        }
+        img{
+            width: 5vw;
+            vertical-align: bottom;
+        }
+        .center{
+            display: flex;
+        }
+        .center .location{
+            height: 5vw;
+            line-height: 5vw;
+            font-size: 4vw;
+            font-weight: 600;
+        }
+    </style>
+    <div class="main">
+        <div class="left"><img src="./images/arrow.png" alt=""></div>
+        <div class="center">
+            <img src="./images/location.png" alt="">
+            <div class="location">
+                &nbsp;北京市&nbsp;&nbsp;&nbsp;&nbsp;海淀区
+            </div>
+        </div>
+        <div class="right"><img src="./images/link_icon.png" alt=""></div>
+    </div>
+   </template>
+   <template id="main">
+    <style>
+        .temperature{
+            background: linear-gradient(to bottom,#3bbcff,#4af4ff);
+            height: 80vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .temperature img{
+            position: absolute;
+        }
+        .center{
+            text-align: center;
+            color: white;
+        }
+        .center .number{
+            text-align: center;
+            font-size: 15vw;
+            color: white;
+            position: relative;
+        }
+        .center .number .img{
+            position: absolute;
+        }
+        .center .cloud{
+            font-size: 8vw;
+        }
+        .center .wind{
+            font-size:4vw ;
+        }
+        .number::after{
+            content: "\B0";
+            position: absolute;
+            text-align: left;
+            top: 0;
+        }
+        .center .desc {
+            margin: 10vw;
+            font-size:4.5vw ;
+        }
+    </style>
+    <div class="temperature">
+        <!-- <img src="./images/bg04.png" alt="" srcset=""> -->
+        <div class="center">
+            <div class="number">25</div>
+            <div class="cloud">多云</div>
+            <div class="wind">湿度 62%</div>
+            <div class="desc">光芒透过云缝，洒向大地~</div>
+        </div>
+
+    </div>
+   </template>
+   <template id="bc">
+    <style>
+        .content{
+            height: 28vw;
+            position: relative;
+            background-color: #4af4ff;
+            overflow: hidden;
+        }
+        img{
+            position: absolute;
+            width: 100vw;
+        }
+    </style>
+    <div class="content">
+        <img src="./images/bg01.png" alt="">
+        <img src="./images/bg03.png" alt="">
+        <img src="./images/bg02.png" alt="">
+    </div>
+   </template>
+   <template id="double">
+    <style>
+        :host{
+            display: block;
+            border-bottom: 3vw solid #F4F4F4;
+        }
+        .content{
+            display: flex;
+            justify-content: space-around;
+            width: 100vw;
+            margin: 5vw 0;
+
+        }
+        .item{
+            width: 37vw;
+            font-size: small;
+        }
+        .item .top{
+            display: flex;
+            justify-content:space-between;
+        }
+        .item .bottom{
+            margin: 2vw 0; 
+            display: flex;
+            justify-content: space-between;
+        }
+        .item .bottom img{
+            width: 5vw;
+        }
+        .line{
+            position: relative;
+   
+        }
+        .line::after{
+            position: absolute;
+            content: "";
+            height: 6vh;
+            width: 0.1vw;
+            display: block;
+            background-color: #f0f0f0;
+            top: 50%;
+            transform: translateY(-60%);
+            left: -7vw;
+        }
+    </style>
+    <div class="content">
+        <div class="item">
+            <div class="top">
+                <div class="time">今天</div>
+                <div class="high-low">39/24°</div>
+            </div>
+           <div class="bottom">
+                <div class="desc">晴</div>
+                <img src="./images/day/qing.png" alt="" srcset="">
+           </div>
+        </div>
+        <div class="item line">
+            <div class="top">
+                <div class="time">昨天</div>
+                <div class="high-low">39/24°</div>
+            </div>
+           <div class="bottom">
+                <div class="desc">晴</div>
+                <img src="./images/day/qing.png" alt="" srcset="">
+           </div>
+        </div>
+    
+        </div>
+    </div>
+   </template>
+   <template id="slide">
+    <style>
+        .content{
+            display: flex;
+            align-items: center;
+            height: 30vw;
+            overflow:auto;
+            border-bottom: 3vw solid #F4F4F4;
+        }
+        .content::-webkit-scrollbar {
+            display: none; 
+            }
+    </style>
+    <div class="content">
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+       <slide-item></slide-item>
+    </div>
+    </div>
+   </template>
+   <template id="slide-item">
+    <style>
+    .item{
+    width: 15vw;
+       
+    }
+    .item .time{
+        text-align: center;
+        font-size: 12px;
+        line-height: 12px;
+        height: 12px;
+        color: #999;
+    }
+    .item .icon{
+        display: flex;
+        justify-content: center;
+    }
+    .item .temperature{
+        text-align: center;
+        font-size: 14px;
+        position: relative;
+    }
+    .item img{
+        width: 6vw;
+        margin: 3vw 0;
+    }
+    .temperature::after{
+        content: "\B0";
+        position: absolute;
+        text-align: left;
+        top: 0;
+    }
+    </style>
+    <div class="item">
+        <div class="time">
+            11:00
+        </div>
+        <div class="icon">
+            <img src="./images/day/qing.png" alt="" srcset="">
+        </div>
+        <div class="temperature">
+            33
+        </div>
+    </div>
+   </template>
+   <template id="recommend">
+    <style>
+        :host{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+    <recommend-item></recommend-item>
+   </template>
+   <template id="recommend-item">
+    <style>
+        .main{
+            width: 24.8vw;
+            height: 25vw;
+             border-right: 0.1vw solid #e6e6e6;
+            border-bottom: 0.1vw solid #e6e6e6 ;
+        }
+        .main .icon{
+            text-align: center;
+        }
+        .main .icon img{
+            margin: 3vw;
+            width: 8vw;
+        }
+        .main .first_desc{
+            text-align: center;
+            font-size: 14px;
+            color: #434343;
+            line-height: 14px;
+            height: 14px;
+            margin-bottom: 6px;
+        }
+        .main .second_desc{
+            text-align: center;
+            color: #999;
+            font-size: 10px;
+        }
+    </style>
+    <div class="main">
+        <div class="icon"><img src="./images/cloth.png" alt="" srcset=""></div>
+        <div class="first_desc">不限行</div>
+        <div class="second_desc">尾号不限行</div>
+    </div>
+   </template>
+   <my-header></my-header>
+   <my-main></my-main>
+   <my-bc></my-bc>
+   <my-double></my-double>
+   <my-slide></my-slide>
+   <my-recommend></my-recommend>
+</body>
+</html>

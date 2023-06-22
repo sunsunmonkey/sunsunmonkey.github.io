@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="//mat1.gtimg.com/www/icon/favicon2.ico">
+    <title>腾讯天气</title>
+    <script src="./component/searchbar.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <template id="search">
+        <style>
+            .main{
+                height: 12vw;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #eee;
+            }
+            .serach{
+                background: #f2f2f2;
+                height: 8vw;
+                width: 80vw;
+                display: flex;
+                align-items: center;
+                border-radius: 5vw;
+                margin-left:5vw ;
+            }
+            input {
+            outline: none;
+            height: 3vw;
+            width: 100%; 
+            border: none;
+            background: #f2f2f2;
+            }
+            .serach img{
+                padding: 1vw;
+                vertical-align: bottom;
+                width: 5vw;
+            }
+            .cancel{
+                text-align: center;
+                width: 15vw;
+                font-size: 14px;
+                color: #434343;
+            }
+        </style>
+        <div class="main">
+            <div class="serach">
+                <img src="./images/search.png" alt="">
+                <input type="text" placeholder="搜索地区">
+            </div>
+            <div class="cancel">
+                 取消
+            </div>
+        </div>
+    </template>
+    <my-search></my-search>
+</body>
+</html>
