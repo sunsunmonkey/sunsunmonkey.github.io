@@ -40,3 +40,4 @@ function dataFormatWeek(data){
 }
 
 dataFormatWeek("2023-06-25")
+console.log(JSON.parse(undefined||[]))
