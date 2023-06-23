@@ -34,11 +34,8 @@ class HotCity extends HTMLElement{
             }
             const Id = div.id;
             const local= div.textContent;
-            storeJson.map((item)=>{
-                if(item.Id !== Id){
-                    storeJson.push({Id,local})
-                }
-            })
+            storeJson.push({Id,local})
+            
             localStorage.setItem("searchHistory",JSON.stringify(storeJson) )
             localStorage.setItem("Id",div.id)
             localStorage.setItem("local",div.textContent)
