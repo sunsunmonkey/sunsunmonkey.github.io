@@ -76,8 +76,15 @@ class SlideItem extends HTMLElement{
         shadowRoot.append(templateContent.cloneNode(true));
         
     }
-    connectedCallback(){
-        const {fxTime,temp,text,flag,isOther} = this.data
+    async connectedCallback(){
+        const {fxTime,temp,flag,isOther} =await this.data
+        let text = this.data.text
+        if(text.includes("雨") ){
+            text ="雨" 
+        }
+        if(text.includes("云") ){
+            text ="多云" 
+        }
         const time = this.shadowRoot.querySelector(".time");
         const temperature = this.shadowRoot.querySelector('.temperature');
         if(isOther){

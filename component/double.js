@@ -13,9 +13,9 @@ class Double extends HTMLElement{
     }
     async connectedCallback (){
 
-        const res =await getTwiceTem(localStorage.getItem("Id"))
+        const res =await getTwiceTem(localStorage.getItem("Id"));
         const temList = res.daily;
-        temList.pop()
+        temList?.pop()
         const temDom = this.shadowRoot.querySelectorAll(".item");
   
         temList.map((item,index)=>{
@@ -26,6 +26,9 @@ class Double extends HTMLElement{
             const img = temDom[index].querySelector("img");
             if(textDay.includes("雨") ){
                 textDay ="雨" 
+            }
+            if(textDay.includes("云") ){
+                textDay ="多云" 
             }
             img.src = textToImg.day[textDay]
             highLow.textContent = `${tempMax}/${tempMin}°`
