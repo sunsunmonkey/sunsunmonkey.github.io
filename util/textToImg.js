@@ -4,6 +4,7 @@ export const textToImg ={
         "晴":"./images/day/qing.png",
         "阴":"./images/day/yun.png",
         "雨":"./images/day/yu.png",
+        "日出":"./images/rise.png",
         "日落":"./images/set.png",
         
     },
@@ -12,7 +13,8 @@ export const textToImg ={
         "晴":"./images/night/qing.png",
         "阴":"./images/night/yun.png",
         "雨":"./images/night/yu.png",
-        "日出":"./images/rise.png"
+        "日出":"./images/rise.png",
+        "日落":"./images/set.png",
     },
     indicate:{
         2:"./images/washcar.png",
