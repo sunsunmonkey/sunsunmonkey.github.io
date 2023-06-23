@@ -16,16 +16,25 @@
 
 ## 使用的技术
 
+#### 核心技术
+
+
 这次项目我尝试的用了一次web Component 用原生的方式实现了组件化开发。web 
 
 Component的封装基于影子树十分强大，有着完全隔离的环境。
 
+
 但由于时间较赶我将template标签写在了一起，或许该用iframe标签导入。
+
+
 
 该技术有着很大的潜力，但其性能和状态管理可能是值得思考的，未来说不定基于web
 
 Component 的库或框架兴起也能撼动现在react和vue的地位，值得思考与研究。
 
+#### 小工具
+
+postman，FEHelper插件，vscode用户自定义代码块(写web Component真的很好用)
 
 ## 亮点
 
