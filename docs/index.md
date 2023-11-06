@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Sunsunmonkey Blog"
-  text: "font-end study "
+  text: "blog"
   tagline: My great project tagline
   actions:
     - theme: brand

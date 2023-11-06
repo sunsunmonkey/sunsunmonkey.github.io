@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Sunsunmonkey Blog",
-  description: "font-end study and keep going",
+  description: "blog",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
