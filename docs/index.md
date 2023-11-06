@@ -14,11 +14,11 @@ hero:
     alt: avatar
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 开始探索
+      link: /react/index.html
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: found me in github
+      link: https://github.com/sunsunmonkey
 
 features:
   - icon: 🛠️
