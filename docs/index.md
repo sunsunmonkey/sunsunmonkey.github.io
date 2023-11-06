@@ -3,9 +3,15 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Sunsunmonkey Blog"
+  text: "Keep study and Stay hungry"
+  tagline: 用技术改变世界
+  image:
+    # 首页右边的图片
+    src:
+      /imgs/avatar.png
+      # 图片的描述
+    alt: avatar
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,11 +21,15 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
+  - icon: 🛠️
+    title: 喜欢探索
+    details: 喜欢探索新技术，新知识，喜欢玩，喜欢捣鼓
 
+  - icon: 🐛
+    title: 喜欢前端
+    details: 喜欢写bug（bushi）, 喜欢coding，热爱前端,
+
+  - icon: 🏃‍♂️
+    title: 热爱生活
+    details: 喜欢锻炼，喜欢体验不同生活
+---
