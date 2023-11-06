@@ -1,6 +1,5 @@
 import { defineConfig } from "vitepress";
-import { nav } from "./relaconf";
-
+import { nav } from "./relaConf";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -21,9 +20,6 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [
-      { icon: "github", link: "https://github.com/sunsunmonkey" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/sunsunmonkey" }],
   },
 });
-
