@@ -174,7 +174,7 @@ useEffect(() => {
 
 推荐阅读
 
-::: tip dan 哥文档
+::: info dan 哥文档
 [useEffect 完整指南](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/)
 :::
 

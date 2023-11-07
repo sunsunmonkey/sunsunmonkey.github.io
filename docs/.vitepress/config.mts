@@ -5,6 +5,7 @@ import { nav } from "./relaConf";
 export default defineConfig({
   title: "Sunsunmonkey blog",
   description: "Sunsunmonkey blog",
+  head: [["link", { rel: "icon", href: "/imgs/avatars.png" }]],
   themeConfig: {
     logo: "/imgs/avatars.png", // 表示docs/public/avartar.png
     // https://vitepress.dev/reference/default-theme-config
@@ -12,8 +13,9 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "一些文章",
+        text: "前端",
         items: [
+          { text: "导航", link: "/FE/" },
           { text: "对effect一点理解", link: "/FE/react-effect" },
         ],
       },
