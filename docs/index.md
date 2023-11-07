@@ -9,7 +9,7 @@ hero:
   image:
     # 首页右边的图片
     src:
-      /imgs/avatar.png
+      /imgs/avatars.png
       # 图片的描述
     alt: avatar
   actions:

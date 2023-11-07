@@ -6,7 +6,7 @@ export default defineConfig({
   title: "Sunsunmonkey blog",
   description: "Sunsunmonkey blog",
   themeConfig: {
-    logo: "/imgs/avatar.png", // 表示docs/public/avartar.png
+    logo: "/imgs/avatars.png", // 表示docs/public/avartar.png
     // https://vitepress.dev/reference/default-theme-config
     nav: nav,
 
