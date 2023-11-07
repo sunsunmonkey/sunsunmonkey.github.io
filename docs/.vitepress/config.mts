@@ -12,10 +12,9 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "Examples",
+        text: "一些文章",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "对effect一点理解", link: "/FE/react-effect" },
         ],
       },
     ],

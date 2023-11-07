@@ -15,9 +15,9 @@ hero:
   actions:
     - theme: brand
       text: 开始探索
-      link: /react/index.html
+      link: /FE/
     - theme: alt
-      text: found me in github
+      text: my github
       link: https://github.com/sunsunmonkey
 
 features:
