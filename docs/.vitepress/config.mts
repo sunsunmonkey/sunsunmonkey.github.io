@@ -14,9 +14,18 @@ export default defineConfig({
     sidebar: [
       {
         text: "前端",
+        link: "/FE/",
         items: [
-          { text: "导航", link: "/FE/" },
-          { text: "对effect一点理解", link: "/FE/react-effect" },
+          {
+            text: "react",
+            items: [
+              { text: "对effect一点理解", link: "/FE/react/react-effect" },
+            ],
+          },
+          {
+            text: "一些工具",
+            items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" }],
+          },
         ],
       },
     ],
