@@ -55,7 +55,6 @@ npm install -D prettier prettier-plugin-tailwindcss
 但还要在.prettierrc配个plugins才会生效
 
 ``` json
-
 {
     "plugins": ["prettier-plugin-tailwindcss"]
 }
