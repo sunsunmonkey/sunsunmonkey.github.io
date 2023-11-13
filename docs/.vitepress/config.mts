@@ -26,8 +26,13 @@ export default defineConfig({
             text: "一些工具",
             items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" }],
           },
+     
         ],
       },
+      {
+        text: "算法",
+        items: [{ text: "kmp算法", link: "/algorithm/kmp" }],
+      }
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/sunsunmonkey" }],
