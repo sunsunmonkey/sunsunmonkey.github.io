@@ -242,6 +242,15 @@ export function indexHtmlMiddware(
   };
 }
 ```
+
 然后就是一个核心transform的中间件
 他会依次调用插件的 resolveId、load、transform 方法
-在插件里我们就会完成JS/TS/JSX/TSX编译等等
+以及一些resolve一些路径使得浏览器可以直接拿到相应的资源
+其中JS/TS/JSX/TSX编译通过esbuild的transform处理
+在插件里我们就会完成静态资源处理，JS/TS/JSX/TSX编译等等
+
+其中主要有三个插件
+
+- 路径解析插件
+- Esbuild 语法编译插件
+- import 分析插件
