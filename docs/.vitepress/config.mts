@@ -26,7 +26,10 @@ export default defineConfig({
             text: "一些工具",
             items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" }],
           },
-     
+          {
+            text: "vite",
+            items: [{ text: "dev阶段的vite", link: "/FE/vite/dev-stage" }],
+          },
         ],
       },
       {
