@@ -206,7 +206,7 @@ export function preBundlePlugin(deps: Set<string>): Plugin {
 
 ### 服务器启动阶段
 
-我们点击**http://localhost:3000/**相当于发起一个 get 请求
+我们点击**ocalhost:3000**相当于发起一个 get 请求
 所以我们中间件处理这个请求
 
 ```ts
