@@ -28,14 +28,20 @@ export default defineConfig({
           },
           {
             text: "vite",
-            items: [{ text: "dev阶段的vite", link: "/FE/vite/dev-stage" }],
+            items: [
+              { text: "dev阶段的vite", link: "/FE/vite/dev-stage" },
+              {
+                text: "vite的hmr",
+                link: "/FE/vite/hmr",
+              },
+            ],
           },
         ],
       },
       {
         text: "算法",
         items: [{ text: "kmp算法", link: "/algorithm/kmp" }],
-      }
+      },
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/sunsunmonkey" }],
