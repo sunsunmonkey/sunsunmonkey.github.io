@@ -23,8 +23,8 @@ export default defineConfig({
             ],
           },
           {
-            text: "一些工具",
-            items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" }],
+            text: "typescript",
+            items: [{ text: "基础知识总结", link: "/FE/typescript/basic" }],
           },
           {
             text: "vite",
@@ -35,6 +35,10 @@ export default defineConfig({
                 link: "/FE/vite/hmr",
               },
             ],
+          },
+          {
+            text: "一些工具",
+            items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" }],
           },
         ],
       },
