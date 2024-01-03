@@ -3,6 +3,9 @@ import { nav } from "./relaConf";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    assetsInclude: ["**/*.awebp"],
+  },
   title: "Sunsunmonkey blog",
   description: "Sunsunmonkey blog",
   head: [["link", { rel: "icon", href: "/imgs/avatars.png" }]],
