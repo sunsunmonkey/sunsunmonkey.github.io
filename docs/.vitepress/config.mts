@@ -24,7 +24,11 @@ export default defineConfig({
           },
           {
             text: "typescript",
-            items: [{ text: "基础知识总结", link: "/FE/typescript/basic" }],
+            items: [
+              { text: "基础知识总结", link: "/FE/typescript/basic" },
+              { text: "类型层次", link: "/FE/typescript/layer" },
+              { text: "工具类型", link: "/FE/typescript/tool" },
+            ],
           },
           {
             text: "vite",
