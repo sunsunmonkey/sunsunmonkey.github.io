@@ -2,15 +2,15 @@
 
 我们从小往大来看
 
-### never
+## never
 
 啥也没有永不出现为 never，所以 never 是所有类型的子类型
 
-### 字面量类型
+## 字面量类型
 
 你可以理解字面量类型为具体的一个值（比如 Boolean 的字面量值 **true**），只不过这个值是以类型的身份出
 
-### 联合类型
+## 联合类型
 
 ```ts
 type Result7 = 1 extends 1 | 2 | 3 ? 1 : 2; // 1
@@ -31,11 +31,11 @@ type Result12 = {} | (() => void) | [] extends object ? 1 : 2; // 1
 
 这也很好理解，你这些"lin","bu"都是字符串所以自然继承 string
 
-### 原始类型
+## 原始类型
 
 像我们平时最常用的 number，string 都是原始类型他们是对应字面量类型的父类型，也是对应相同字面量联合类型的父类型
 
-### 装箱类型
+## 装箱类型
 
 ```ts
 type Result14 = string extends String ? 1 : 2; // 1
@@ -63,7 +63,7 @@ type Result21 = {} extends Object ? 1 : 2; // 1
 
 现在，我们关注的类型为 Object 。
 
-### any 和 unknown
+## any 和 unknown
 
 这俩哥就是顶层
 
@@ -74,7 +74,7 @@ type Result25 = unknown extends Object ? 1 : 2; // 2
 
 any 代表了任何可能的类型，当我们使用 `any extends` 时，它包含了“**让条件成立的一部分**”，以及“**让条件不成立的一部分**”。而从实现上说，在 TypeScript 内部代码的条件类型处理中，如果接受判断的是 any，那么会直接**返回条件类型结果组成的联合类型**。
 
-### 串联所有
+## 串联所有
 
 ```ts
 //never < 字面量

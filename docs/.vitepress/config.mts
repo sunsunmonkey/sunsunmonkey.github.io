@@ -31,6 +31,10 @@ export default defineConfig({
               { text: "基础知识总结", link: "/FE/typescript/basic" },
               { text: "类型层次", link: "/FE/typescript/layer" },
               { text: "工具类型", link: "/FE/typescript/tool" },
+              {
+                text: "协变和逆变",
+                link: "/FE/typescript/Covariance and contravariance",
+              },
             ],
           },
           {
