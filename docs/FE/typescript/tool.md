@@ -1,6 +1,6 @@
 # 工具类型
 
-### 属性修饰工具类型
+## 属性修饰工具类型
 
 ```ts
 type Partial<T> = {
@@ -18,7 +18,7 @@ type Readonly<T> = {
 
 其中，Partial 与 Required 可以认为是一对工具类型，它们的功能是相反的，而在实现上，它们的唯一差异是在索引类型签名处的可选修饰符，Partial 是 `?`，即标记属性为可选，而 Required 则是 `-?`，相当于在原本属性上如果有 `?` 这个标记，则移除它。
 
-### 结构工具类型
+## 结构工具类型
 
 ```ts
 type Record<K extends keyof any, T> = {
@@ -48,7 +48,7 @@ interface Foo {
 type PickedFoo = Pick<Foo, "name" | "age">;
 ```
 
-### 集合工具类型
+## 集合工具类型
 
 ```ts
 // 差集
@@ -67,7 +67,7 @@ export type Difference<A, B> = A extends B ? never : A;
 export type Complement<A, B extends A> = Difference<A, B>;
 ```
 
-### 模式匹配工具类型
+## 模式匹配工具类型
 
 对函数类型签名的模式匹配：
 
