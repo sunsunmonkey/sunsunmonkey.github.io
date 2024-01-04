@@ -1,6 +1,6 @@
 # vite hmr 的过程
 
-### 模块依赖图构建
+## 模块依赖图构建
 
 ModuleGraph 类
 
@@ -140,7 +140,7 @@ export async function startDevServer() {
 然后在加载完模块后，也就是调用插件容器的 load 方法后，我们需要通过 **ensureEntryFromUrl** 方法注册模块
 当我们对 JS 模块分析完 import 语句之后，需要更新模块之间的依赖关系
 
-### 服务器
+## 服务器
 
 - 创建文件监听器，以监听文件的变动
 - 创建 WebSocket 服务端，负责和客户端进行通信
@@ -185,7 +185,7 @@ export function createWebSocketServer(server: connect.Server): {
 }
 ```
 
-### 客户端
+## 客户端
 
 HMR 客户端指的是我们向浏览器中注入的一段 JS 脚本，这段脚本中会做如下的事情:
 相关脚本

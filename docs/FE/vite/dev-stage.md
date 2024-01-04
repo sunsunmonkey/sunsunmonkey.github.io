@@ -1,6 +1,6 @@
 # dev 阶段的 vite
 
-### 预构建阶段
+## 预构建阶段
 
 vite 源码是从 initDepsOptimizer 进入的
 
@@ -28,7 +28,7 @@ initingServer = (async function () {
 
 后面两步主要借助 esbuild 进行
 
-#### 从入口处扫描依赖
+### 从入口处扫描依赖
 
 ```ts
 await build({
@@ -90,7 +90,7 @@ export function scanPlugin(deps: Set<string>): Plugin {
 }
 ```
 
-#### 预构建依赖
+### 预构建依赖
 
 这一步我们进行正式预构建就是吧第三方的文件打在一起减少网络请求
 
@@ -204,7 +204,7 @@ export function preBundlePlugin(deps: Set<string>): Plugin {
 由此整个预构建阶段完成我们进行启动服务器
 同时进入中间件执行
 
-### 服务器启动阶段
+## 服务器启动阶段
 
 我们点击**ocalhost:3000**相当于发起一个 get 请求
 所以我们中间件处理这个请求
