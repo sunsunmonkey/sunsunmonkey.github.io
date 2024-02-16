@@ -23,6 +23,7 @@ export default defineConfig({
             text: "react",
             items: [
               { text: "对effect一点理解", link: "/FE/react/react-effect" },
+              { text: "zustand", link: "/FE/react/zustand.md" },
             ],
           },
           {

@@ -18,6 +18,27 @@ type Readonly<T> = {
 
 其中，Partial 与 Required 可以认为是一对工具类型，它们的功能是相反的，而在实现上，它们的唯一差异是在索引类型签名处的可选修饰符，Partial 是 `?`，即标记属性为可选，而 Required 则是 `-?`，相当于在原本属性上如果有 `?` 这个标记，则移除它。
 
+### 深层的属性修饰
+
+```ts
+export type DeepPartial<T extends object> = {
+  [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K];
+};
+
+export type DeepRequired<T extends object> = {
+  [K in keyof T]-?: T[K] extends object ? DeepRequired<T[K]> : T[K];
+};
+
+// 也可以记作 DeepImmutable
+export type DeepReadonly<T extends object> = {
+  readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K];
+};
+
+export type DeepMutable<T extends object> = {
+  -readonly [K in keyof T]: T[K] extends object ? DeepMutable<T[K]> : T[K];
+};
+```
+
 ## 结构工具类型
 
 ```ts
