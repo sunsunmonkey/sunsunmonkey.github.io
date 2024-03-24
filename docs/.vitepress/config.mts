@@ -22,8 +22,22 @@ export default defineConfig({
           {
             text: "react",
             items: [
-              { text: "对effect一点理解", link: "/FE/react/react-effect" },
+              { text: "概述", link: "/FE/react/start.md" },
+              { text: "jsx", link: "/FE/react/jsx.md" },
+              { text: "mount", link: "/FE/react/mount.md" },
+              { text: "事件系统", link: "/FE/react/event.md" },
+              { text: "useState", link: "/FE/react/useState.md" },
+              { text: "diff", link: "/FE/react/update_diff.md" },
+              { text: "Scheduler", link: "/FE/react/Scheduler.md" },
+              { text: "useEffect", link: "/FE/react/useEffect.md" },
+              { text: "useRef", link: "/FE/react/useRef.md" },
+              { text: "useContext", link: "/FE/react/useContext.md" },
+              { text: "并发更新", link: "/FE/react/concurrent.md" },
+              { text: "useTransition", link: "/FE/react/useTransition.md" },
+              { text: "性能优化", link: "/FE/react/performance.md" },
+              { text: "杂记", link: "/FE/react/free.md" },
               { text: "zustand", link: "/FE/react/zustand.md" },
+              { text: "对effect一点理解", link: "/FE/react/react-effect" },
             ],
           },
           {
