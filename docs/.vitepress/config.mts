@@ -8,7 +8,10 @@ export default defineConfig({
   },
   title: "Sunsunmonkey blog",
   description: "Sunsunmonkey blog",
-  head: [["link", { rel: "icon", href: "/imgs/avatars.png" }]],
+  head: [
+    ["link", { rel: "icon", href: "/imgs/avatars.png" }],
+    ["meta", { name: "referrer", content: "no-referrer" }],
+  ],
   themeConfig: {
     logo: "/imgs/avatars.png", // 表示docs/public/avartar.png
     // https://vitepress.dev/reference/default-theme-config
@@ -38,7 +41,10 @@ export default defineConfig({
               { text: "杂记", link: "/FE/react/free.md" },
               { text: "zustand", link: "/FE/react/zustand.md" },
               { text: "对effect一点理解", link: "/FE/react/react-effect" },
-              { text: "官网性能优化", link: "/FE/react/officalwebsite-performance" },
+              {
+                text: "官网性能优化",
+                link: "/FE/react/officalwebsite-performance",
+              },
             ],
           },
           {
