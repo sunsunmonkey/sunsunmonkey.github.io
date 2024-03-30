@@ -38,6 +38,7 @@ export default defineConfig({
               { text: "杂记", link: "/FE/react/free.md" },
               { text: "zustand", link: "/FE/react/zustand.md" },
               { text: "对effect一点理解", link: "/FE/react/react-effect" },
+              { text: "官网性能优化", link: "/FE/react/officalwebsite-performance" },
             ],
           },
           {
