@@ -67,7 +67,7 @@ export default defineConfig({
           },
           {
             text: "一些工具",
-            items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" }],
+            items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" } , { text: "H5的真机调试", link: "/FE/tool/H5-debugger" }],
           },
         ],
       },
