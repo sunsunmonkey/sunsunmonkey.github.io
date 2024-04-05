@@ -384,7 +384,9 @@ type ReverseKeyValue<T extends Record<string, string>> = T extends Record<
 
 ## 分布式条件类型
 
-```ts
+分布式条件类型听起来真的很高级，但这里和分布式和分布式服务并不是一回事。**分布式条件类型（Distributive Conditional Type），也称条件类型的分布式特性**，只不过是条件类型在满足一定情况下会执行的逻辑而已。我们来看一个例子：
+
+```typescript
 type Condition<T> = T extends 1 | 2 | 3 ? T : never;
 
 // 1 | 2 | 3
@@ -394,8 +396,130 @@ type Res1 = Condition<1 | 2 | 3 | 4 | 5>;
 type Res2 = 1 | 2 | 3 | 4 | 5 extends 1 | 2 | 3 ? 1 | 2 | 3 | 4 | 5 : never;
 ```
 
-对于属于裸类型参数的检查类型，条件类型会在实例化时期自动分发到联合类型上。
-而这里的裸类型参数，其实指的就是**泛型参数**是否完全裸露
+这个例子可能让你感觉充满了疑惑，某些地方似乎和我们学习的知识并不一样？先不说这两个理论上应该执行结果一致的类型别名，为什么在 Res1 中诡异地返回了一个联合类型？
+
+仔细观察这两个类型别名的差异你会发现，唯一的差异就是在 Res1 中，进行判断的联合类型被作为泛型参数传入给另一个独立的类型别名，而 Res2 中直接对这两者进行判断。
+
+记住第一个差异：**是否通过泛型参数传入**。我们再看一个例子：
+
+```typescript
+type Naked<T> = T extends boolean ? "Y" : "N";
+type Wrapped<T> = [T] extends [boolean] ? "Y" : "N";
+
+// "N" | "Y"
+type Res3 = Naked<number | boolean>;
+
+// "N"
+type Res4 = Wrapped<number | boolean>;
+```
+
+现在我们都是通过泛型参数传入了，但诡异的事情又发生了，为什么第一个还是个联合类型？第二个倒是好理解一些，元组的成员有可能是数字类型，显然不兼容于 `[boolean]`。再仔细观察这两个例子你会发现，它们唯一的差异是条件类型中的**泛型参数是否被数组包裹**了。
+
+同时，你会发现在 Res3 的判断中，其联合类型的两个分支，恰好对应于分别使用 number 和 boolean 去作为条件类型判断时的结果。
+
+把上面的线索理一下，其实我们就大致得到了条件类型分布式起作用的条件。首先，你的类型参数需要是一个联合类型 。其次，类型参数需要通过泛型参数的方式传入，而不能直接在外部进行判断（如 Res2 中）。最后，条件类型中的泛型参数不能被包裹。
+
+而条件类型分布式特性会产生的效果也很明显了，即将这个联合类型拆开来，每个分支分别进行一次条件类型判断，再将最后的结果合并起来（如 Naked 中）。如果再严谨一些，其实我们就得到了官方的解释：
+
+**对于属于裸类型参数的检查类型，条件类型会在实例化时期自动分发到联合类型上。**（***Conditional types in which the checked type is a naked type parameter are called distributive conditional types. Distributive conditional types are automatically distributed over union types during instantiation.***）
+
+这里的自动分发，我们可以这么理解：
+
+```typescript
+type Naked<T> = T extends boolean ? "Y" : "N";
+
+// (number extends boolean ? "Y" : "N") | (boolean extends boolean ? "Y" : "N")
+// "N" | "Y"
+type Res3 = Naked<number | boolean>;
+```
+
+写成伪代码其实就是这样的：
+
+```typescript
+const Res3 = [];
+
+for(const input of [number, boolean]){
+  if(input extends boolean){
+    Res3.push("Y");
+  } else {
+    Res.push("N");
+  }
+}
+```
+
+而这里的裸类型参数，其实指的就是泛型参数是否完全裸露，我们上面使用数组包裹泛型参数只是其中一种方式，比如还可以这么做：
+
+```typescript
+export type NoDistribute<T> = T & {};
+
+type Wrapped<T> = NoDistribute<T> extends [boolean] ? "Y" : "N";
+```
+
+需要注意的是，我们并不是只会通过裸露泛型参数，来确保分布式特性能够发生。在某些情况下，我们也会需要包裹泛型参数来禁用掉分布式特性。最常见的场景也许还是联合类型的判断，即我们不希望进行联合类型成员的分布判断，而是希望直接判断这两个联合类型的兼容性判断，就像在最初的 Res2 中那样：
+
+```typescript
+type CompareUnion<T, U> = [T] extends [U] ? true : false;
+
+type CompareRes1 = CompareUnion<1 | 2, 1 | 2 | 3>; // true
+type CompareRes2 = CompareUnion<1 | 2, 1>; // false
+```
+
+通过将参数与条件都包裹起来的方式，我们对联合类型的比较就变成了数组成员类型的比较，在此时就会严格遵守类型层级一文中联合类型的类型判断了（子集为其子类型）。
+
+另外一种情况则是，当我们想判断一个类型是否为 never 时，也可以通过类似的手段：
+
+```typescript
+type IsNever<T> = [T] extends [never] ? true : false;
+
+type IsNeverRes1 = IsNever<never>; // true
+type IsNeverRes2 = IsNever<"linbudu">; // false
+```
+
+这里的原因其实并不是因为分布式条件类型。我们此前在类型层级中了解过，当条件类型的判断参数为 any，会直接返回条件类型两个结果的联合类型。而在这里其实类似，当通过泛型传入的参数为 never，则会直接返回 never。
+
+需要注意的是这里的 never 与 any 的情况并不完全相同，any 在直接**作为判断参数时**、**作为泛型参数时**都会产生这一效果：
+
+```typescript
+// 直接使用，返回联合类型
+type Tmp1 = any extends string ? 1 : 2;  // 1 | 2
+
+type Tmp2<T> = T extends string ? 1 : 2;
+// 通过泛型参数传入，同样返回联合类型
+type Tmp2Res = Tmp2<any>; // 1 | 2
+
+// 如果判断条件是 any，那么仍然会进行判断
+type Special1 = any extends any ? 1 : 2; // 1
+type Special2<T> = T extends any ? 1 : 2;
+type Special2Res = Special2<any>; // 1
+```
+
+而 never 仅在作为泛型参数时才会产生：
+
+```typescript
+// 直接使用，仍然会进行判断
+type Tmp3 = never extends string ? 1 : 2; // 1
+
+type Tmp4<T> = T extends string ? 1 : 2;
+// 通过泛型参数传入，会跳过判断
+type Tmp4Res = Tmp4<never>; // never
+
+// 如果判断条件是 never，还是仅在作为泛型参数时才跳过判断
+type Special3 = never extends never ? 1 : 2; // 1
+type Special4<T> = T extends never ? 1 : 2;
+type Special4Res = Special4<never>; // never
+```
+
+这里的 any、never 两种情况都不会实际地执行条件类型，而在这里我们通过包裹的方式让它不再是一个孤零零的 never，也就能够去执行判断了。
+
+之所以分布式条件类型要这么设计，我个人理解主要是为了处理联合类型这种情况。就像我们到现在为止的伪代码都一直使用数组来表达联合类型一样，在类型世界中联合类型就像是一个集合一样。通过使用分布式条件类型，我们能轻易地进行集合之间的运算，比如交集：
+
+```typescript
+type Intersection<A, B> = A extends B ? A : never;
+
+type IntersectionRes = Intersection<1 | 2 | 3, 2 | 3 | 4>; // 2 | 3
+```
+
+
 
 ## 协变与逆变
 
