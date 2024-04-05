@@ -13,6 +13,15 @@ export default defineConfig({
     ["meta", { name: "referrer", content: "no-referrer" }],
   ],
   themeConfig: {
+    search: {
+      provider: "local",
+      // provider: "algolia",
+      // options: {
+      //   appId: "NMCBC1NC6I",
+      //   apiKey: "810cc8cb2ab9a01086f561306c757595",
+      //   indexName: "vitepress",
+      // },
+    },
     logo: "/imgs/avatars.png", // 表示docs/public/avartar.png
     // https://vitepress.dev/reference/default-theme-config
     nav: nav,
@@ -67,7 +76,10 @@ export default defineConfig({
           },
           {
             text: "一些工具",
-            items: [{ text: "tailwind插件", link: "/FE/tool/tailwind-plugin" } , { text: "H5的真机调试", link: "/FE/tool/H5-debugger" }],
+            items: [
+              { text: "tailwind插件", link: "/FE/tool/tailwind-plugin" },
+              { text: "H5的真机调试", link: "/FE/tool/H5-debugger" },
+            ],
           },
         ],
       },
