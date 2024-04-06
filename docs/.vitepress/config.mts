@@ -14,13 +14,13 @@ export default defineConfig({
   ],
   themeConfig: {
     search: {
-      provider: "local",
-      // provider: "algolia",
-      // options: {
-      //   appId: "NMCBC1NC6I",
-      //   apiKey: "810cc8cb2ab9a01086f561306c757595",
-      //   indexName: "vitepress",
-      // },
+      // provider: "local",
+      provider: "algolia",
+      options: {
+        appId: "4SEPMSNS80",
+        apiKey: "a973e3146cd860b638c46a4aeeaca0ad",
+        indexName: "sunsunmonkeyio",
+      },
     },
     logo: "/imgs/avatars.png", // 表示docs/public/avartar.png
     // https://vitepress.dev/reference/default-theme-config
