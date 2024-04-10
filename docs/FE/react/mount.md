@@ -1,7 +1,7 @@
 # 首屏渲染 
 
 我们回想一下
-```
+```typescript
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
 root.render(<App />);
@@ -25,7 +25,7 @@ export function createRoot(container: Container) {
 同时创建hostfiberRoot然后
 hostRootFiber.stateNode 指向 FiberRootNode
 FiberRootNode.current 指向 hostRootFiber 这样两个root就联系了起来
-注意FiberRootNode可以理解为一个全局的管理中心，**同时container属性对应document.querySelector('#root') **，而hostRootFiber是一个fiber是第一个fiber
+注意FiberRootNode可以理解为一个全局的管理中心，**同时container属性对应document.querySelector('#root')**，而hostRootFiber是一个fiber是第一个fiber
 
 
 ## 触发渲染
@@ -38,7 +38,8 @@ root.render(<App />);
 这个updateQueue就是 hostRootFiber上的
 
 ## 调度开始
-**scheduleUpdateOnFiber **
+**scheduleUpdateOnFiber**
+
 这是一个很重要的函数
 这个函数是这样的
 ```typescript
@@ -245,6 +246,6 @@ onst commitMutationEffectsOnFiber = (
 };
 ```
 这里就会执行一系列的增删改查以及相应的effect任务的入队
-在执行完mutation阶段后也就该执行ayout 这也是为啥useEffectlayout在dom构建之后才执行同时是同步的
+在执行完mutation阶段后也就该执行layout 这也是为啥useEffectlayout在dom构建之后才执行同时是同步的
 至此大体流程就已经结束了
 
