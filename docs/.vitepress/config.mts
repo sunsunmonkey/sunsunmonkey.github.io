@@ -84,6 +84,13 @@ export default defineConfig({
         ],
       },
       {
+        text: "rust",
+        items: [
+          { text: "总览", link: "/rust/index" },
+          { text: "基础", link: "/rust/basic" },
+        ],
+      },
+      {
         text: "算法",
         items: [{ text: "kmp算法", link: "/algorithm/kmp" }],
       },
