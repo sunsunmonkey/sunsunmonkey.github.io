@@ -138,7 +138,7 @@ switch (wip.tag) {
 核心就是根据不同的tag执行不同的生成子节点的操作
 
 通过**reconcileChildren**生成子fiber
-这里注意的是由于rootfibe有alternate所以会
+这里注意的是由于rootfiber有alternate所以会
 加上placement，插入操作的flag而其他生成的子fiber则不会有这个过程
 在beginwork里我们会涉及到一些diff相关的操作我们之后再聊
 
