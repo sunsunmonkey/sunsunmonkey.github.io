@@ -88,6 +88,7 @@ export default defineConfig({
         items: [
           { text: "总览", link: "/rust/index" },
           { text: "基础", link: "/rust/basic" },
+          {text: "高级进阶", link: "/rust/advance"}
         ],
       },
       {
