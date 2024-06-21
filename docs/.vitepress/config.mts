@@ -11,6 +11,17 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", href: "/imgs/avatars.png" }],
     ["meta", { name: "referrer", content: "no-referrer" }],
+    [
+      "script",
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?bd79f51388feef026565cafa0843be8d";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();`,
+    ],
   ],
   themeConfig: {
     search: {
@@ -89,7 +100,7 @@ export default defineConfig({
         items: [
           { text: "总览", link: "/rust/index" },
           { text: "基础", link: "/rust/basic" },
-          {text: "高级进阶", link: "/rust/advance"}
+          { text: "高级进阶", link: "/rust/advance" },
         ],
       },
       {
