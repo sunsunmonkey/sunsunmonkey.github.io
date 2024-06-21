@@ -13,14 +13,15 @@ export default defineConfig({
     ["meta", { name: "referrer", content: "no-referrer" }],
     [
       "script",
+      { async:"true", src:"https://www.googletagmanager.com/gtag/js?id=G-M05CK046NB"},
+    ],
+    [
+      "script",
       {},
-      `var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?bd79f51388feef026565cafa0843be8d";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })();`,
+      ` window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M05CK046NB');`
     ],
   ],
   themeConfig: {
