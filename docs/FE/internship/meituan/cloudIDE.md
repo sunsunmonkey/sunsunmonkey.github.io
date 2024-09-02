@@ -200,6 +200,7 @@ export function deactivate() {}
 
 ### linux 侧
 
+#### 方案一
 linux 的隐藏文件就是在名称前加个 " . " 但 ls -a 仍然可以访问
 
 目前想到就是把.zshrc 或者.bashrc 改个 alias
@@ -215,3 +216,17 @@ linux 的隐藏文件就是在名称前加个 " . " 但 ls -a 仍然可以访问
 
 root
 ```
+
+#### 方案二
+
+【方案二】通过更复杂的Linux应用来限制root的访问权限
+
+比如SElinux，AppArmor等的东西。
+
+感觉复杂度都比较高，不适合vscode插件侧做
+
+比如SElinux
+
+同时大概测了一下这些组件我们都没有内置
+
+要apt下载才能使用
