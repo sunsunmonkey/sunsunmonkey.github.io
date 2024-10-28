@@ -7,8 +7,8 @@
 - **FCP(first-contentful-paint)**，从页面加载开始到页面内容的任何部分在屏幕上完成渲染的时间
 - **LCP(largest-contentful-paint)**，从页面加载开始到最大文本块或图像元素在屏幕上完成渲染的时间
 - **CLS(layout-shift)**，从页面加载开始和其[生命周期状态](https://link.juejin.cn?target=https%3A%2F%2Fdevelopers.google.com%2Fweb%2Fupdates%2F2018%2F07%2Fpage-lifecycle-api)变为隐藏期间发生的所有意外布局偏移的累积分数
-- **TTI**用于衡量页面从开始加载到可以响应用户交互（如点击、输入等）之间所需的时间。
-- **TBT**是衡量页面在加载期间，主线程由于长任务（超过 50ms 的任务）而无法响应用户交互的累计时。TBT 是页面的 First Contentful Paint (FCP) 到 Time to Interactive (TTI) 之间，所有阻塞主线程超过 50ms 的任务所产生的时间总和。
+- **TTI**, 用于衡量页面从开始加载到可以响应用户交互（如点击、输入等）之间所需的时间。
+- **TBT**, 是衡量页面在加载期间，主线程由于长任务（超过 50ms 的任务）而无法响应用户交互的累计时。TBT 是页面的 First Contentful Paint (FCP) 到 Time to Interactive (TTI) 之间，所有阻塞主线程超过 50ms 的任务所产生的时间总和。
   
 这也是lighthouse会关注的几个点
 稍微复杂点我们可以看**performance**
