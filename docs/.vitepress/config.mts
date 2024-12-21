@@ -13,7 +13,10 @@ export default defineConfig({
     ["meta", { name: "referrer", content: "no-referrer" }],
     [
       "script",
-      { async:"true", src:"https://www.googletagmanager.com/gtag/js?id=G-M05CK046NB"},
+      {
+        async: "true",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-M05CK046NB",
+      },
     ],
     [
       "script",
@@ -21,7 +24,7 @@ export default defineConfig({
       ` window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-M05CK046NB');`
+        gtag('config', 'G-M05CK046NB');`,
     ],
   ],
   themeConfig: {
@@ -102,6 +105,14 @@ export default defineConfig({
           { text: "总览", link: "/rust/index" },
           { text: "基础", link: "/rust/basic" },
           { text: "高级进阶", link: "/rust/advance" },
+        ],
+      },
+      {
+        text: "随记",
+        items: [
+          { text: "总览", link: "/otherNote/index" },
+          { text: "vscode布局重置", link: "/otherNote/vscodeLayout" },
+          { text: "glob", link: "/otherNote/glob" },
         ],
       },
       {
